@@ -38,6 +38,8 @@
   .opt.sel .lb .nm .chk{background:var(--accent);border-color:var(--accent);}
   .opt .lb .ds{font-size:11.5px;color:var(--soft);margin-top:3px;line-height:1.4;word-break:keep-all;}
   .opt .lb .ft{font-family:var(--mono);font-size:10px;color:var(--soft);margin-top:6px;}
+  .opt .lb .pvbtn{margin-top:10px;width:100%;font-family:var(--sans);font-size:12.5px;font-weight:700;color:var(--accent);background:#fff;border:1.5px solid var(--accent);border-radius:8px;padding:8px 0;cursor:pointer;transition:background .15s,color .15s;}
+  .opt .lb .pvbtn:hover{background:var(--accent);color:#fff;}
   .pv-A{background:#1b1610;} .pv-A .t{font-family:var(--mono);color:#e9b079;} .pv-A .h{font-family:"Gowun Batang",serif;color:#f4f0e8;} .pv-A .h i{color:#e9b079;} .pv-A .bb{background:#cf5f2e;color:#fff;}
   .pv-B{background:#f5f6fb;} .pv-B .t{font-family:var(--mono);color:#3b35ff;} .pv-B .h{font-family:"Fraunces",serif;color:#0d0e1a;} .pv-B .h i{color:#3b35ff;} .pv-B .bb{background:#3b35ff;color:#fff;border-radius:9px;}
   .pv-C{background:radial-gradient(ellipse at 70% 0%,#1c1a14,#0b0b0e 65%);} .pv-C .t{font-family:var(--mono);color:#c9a14a;} .pv-C .h{font-family:"Cormorant Garamond",serif;color:#f3eee2;font-size:20px;} .pv-C .h i{color:#e3c987;} .pv-C .bb{background:linear-gradient(135deg,#e3c987,#c9a14a);color:#1a1407;}
@@ -89,7 +91,7 @@
 <body>
 <div class="wrap">
   <header class="top">
-    <div class="kicker">CLUB HAWAII</div>
+    <div class="kicker">2CLUB HAWAII</div>
     <h1>2028 대입 시행계획 설명회<br>신청 페이지 만들기</h1>
     <p>우리 학원 <b>2028 대입 시행계획 설명회</b> 신청 페이지를 코딩 없이 만드세요. 디자인을 고르고 학원 정보만 넣으면 바로 완성됩니다. 본문은 예시 문구가 채워져 있으니, 우리 학원에 맞게 고치거나 그대로 쓰셔도 됩니다. 비워둔 항목은 자동으로 빠집니다.</p>
   </header>
@@ -153,7 +155,19 @@
     div.className="opt"+(k===selected?" sel":"");
     div.setAttribute("data-k",k);
     div.innerHTML='<div class="pv pv-'+k+'"><span class="t">'+m.pt+'</span><div class="h">'+m.ph+'</div><div class="bb">'+m.pb+'</div></div>'+
-      '<div class="lb"><div class="nm">'+m.name+' <span class="chk">✓</span></div><div class="ds">'+m.desc+'</div><div class="ft">'+m.fit+'</div></div>';
+      '<div class="lb"><div class="nm">'+m.name+' <span class="chk">✓</span></div><div class="ds">'+m.desc+'</div><div class="ft">'+m.fit+'</div><button class="pvbtn" data-pv="'+k+'">미리보기 👁</button></div>';
+    div.querySelector(".pvbtn").addEventListener("click",function(ev){
+      ev.stopPropagation();
+      var prev=selected;       // 현재 선택 기억
+      selected=k;              // 이 시안으로 임시 빌드
+      var h=buildHTML();
+      selected=prev;           // 선택은 원래대로 복구 (미리보기만)
+      if(!h) return;
+      var url=URL.createObjectURL(new Blob([h],{type:"text/html;charset=utf-8"}));
+      var w=window.open(url,"_blank");
+      if(!w) alert("미리보기 창이 차단되었어요. 팝업 차단을 해제해 주세요.");
+      setTimeout(function(){URL.revokeObjectURL(url);},60000);
+    });
     div.addEventListener("click",function(){
       selected=k;
       var all=document.querySelectorAll(".opt");
