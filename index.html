@@ -160,7 +160,7 @@
       ev.stopPropagation();
       var prev=selected;       // 현재 선택 기억
       selected=k;              // 이 시안으로 임시 빌드
-      var h=buildHTML();
+      var h=buildHTML(true);   // 미리보기 모드(기본정보 없어도 OK)
       selected=prev;           // 선택은 원래대로 복구 (미리보기만)
       if(!h) return;
       var url=URL.createObjectURL(new Blob([h],{type:"text/html;charset=utf-8"}));
@@ -300,9 +300,17 @@
 
   // ---- 빌드 ----
   function esc(s){return s;} // 본문은 일부 태그 허용(hero_title 등)
-  function buildHTML(){
+  // preview=true면 STEP2 필수 입력 없이도 임시 예시값으로 채워 미리보기 생성
+  function buildHTML(preview){
     var info=collectInfo();
-    if(!info["학원명"]||!info["행사일"]||!info["GOOGLE_FORM"]){
+    if(preview){
+      // 미리보기 전용 임시값(원장님이 안 채운 칸 보기 좋게 채움)
+      var demo={"학원명":"○○학원","과목학년":"고1–고3 · 우리 동네","행사라벨":"2028 대입 시행계획 설명회",
+        "행사일":"○월 ○일(토) 오후 ○시","좌석":"○층 강의실 · ○석","마감일":"○월 ○일",
+        "정원":"○○명","전화번호":"02-000-0000","주소":"우리 학원 주소",
+        "GOOGLE_FORM":"https://forms.gle/example"};
+      INFOF.forEach(function(f){ if(!info[f.k]) info[f.k]=demo[f.k]||""; });
+    } else if(!info["학원명"]||!info["행사일"]||!info["GOOGLE_FORM"]){
       alert("STEP 2의 학원명, 행사 일시, 구글폼 링크는 꼭 입력해 주세요."); return null;
     }
     var content=collectContent();
@@ -368,7 +376,7 @@
     var h=buildHTML(); if(h) download(h,fileName());
   });
   document.getElementById("btnPreview").addEventListener("click",function(){
-    var h=buildHTML(); if(!h) return;
+    var h=buildHTML(true); if(!h) return;
     var url=URL.createObjectURL(new Blob([h],{type:"text/html;charset=utf-8"}));
     var w=window.open(url,"_blank");
     if(!w) alert("미리보기 창이 차단되었어요. 팝업 차단을 해제하거나, 바로 다운로드해서 열어보세요.");
