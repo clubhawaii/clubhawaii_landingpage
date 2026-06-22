@@ -92,7 +92,7 @@
   .guide .gh .pin{font-size:22px;}
   .guide .gsub{font-size:14px;color:#a16207;margin-bottom:20px;line-height:1.6;word-break:keep-all;}
   .guide .gsub b{color:#92400e;}
-  .gsteps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px;}
+  .gsteps{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:18px;}
   @media(max-width:680px){.gsteps{grid-template-columns:1fr;}}
   .gstep{background:#fff;border:1px solid #fde68a;border-radius:14px;padding:18px 16px;position:relative;}
   .gstep .gnum{width:30px;height:30px;border-radius:50%;background:#f59e0b;color:#fff;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;}
@@ -104,6 +104,17 @@
   .gtips .gtt{font-weight:800;color:#92400e;margin-bottom:6px;font-size:14px;}
   .gtips b{color:#b45309;}
   .gtips .warn{color:#b45309;}
+  .galert{background:#fef2f2;border:2px solid #fecaca;border-radius:12px;padding:14px 18px;margin-bottom:18px;font-size:14px;color:#991b1b;line-height:1.65;word-break:keep-all;}
+  .galert b{color:#7f1d1d;}
+  .galert .at{font-weight:800;font-size:14.5px;display:block;margin-bottom:3px;}
+  /* 영어 팝업 안내 */
+  .gpop{background:#fff;border:2px solid #fde68a;border-radius:14px;padding:18px 18px 20px;margin-bottom:18px;}
+  .gpop .gpt{font-size:15px;font-weight:800;color:#92400e;margin-bottom:4px;}
+  .gpop .gpd{font-size:13.5px;color:#555;line-height:1.65;margin-bottom:16px;word-break:keep-all;}
+  .gpop .gpd b{color:#b45309;}
+  .gpop .gpwrap{display:flex;flex-wrap:wrap;align-items:center;gap:18px;justify-content:center;}
+  .gpop .gpcap{font-size:13.5px;font-weight:700;color:#16a34a;text-align:center;line-height:1.5;}
+  .gpop .gpcap .big{font-size:15px;}
 </style>
 </head>
 <body>
@@ -122,7 +133,7 @@
   <div class="panel">
     <div class="sec-h">STEP 2. 학원 기본 정보</div>
     <div class="form" id="infoForm"></div>
-    <div class="note">구글폼에서 신청서를 만든 뒤 <b>응답자 링크를 복사하여</b> 붙여넣으세요. <b>*</b> 항목은 꼭 입력해야 해요.</div>
+    <div class="note">구글폼에서 신청서를 만든 뒤 <b>보내기 → 링크 → URL 복사</b>를 눌러 붙여넣으세요. <b>*</b> 항목은 꼭 입력해야 해요.</div>
   </div>
 
   <div class="panel">
@@ -140,7 +151,11 @@
 
   <div class="guide">
     <div class="gh"><span class="pin">📌</span> 다운로드 전에 꼭 읽어보세요!</div>
-    <div class="gsub">아래 STEP 5에서 파일을 받으면, 그 파일을 <b>인터넷에 올려야</b> 학부모님께 보낼 주소(링크)가 생깁니다. 무료이고, 아래 <b>3단계</b>면 끝나요. <b>로그인·가입 없이도</b> 됩니다.</div>
+    <div class="gsub">아래 STEP 5에서 파일을 받으면, 그 파일을 <b>인터넷에 올려야</b> 학부모님께 보낼 주소(링크)가 생깁니다. 무료이고, 아래 <b>4단계</b>면 끝나요.</div>
+    <div class="galert">
+      <span class="at">⚠️ 무료 가입은 꼭 하세요! (안 하면 1시간 뒤 사라져요)</span>
+      가입하지 않으면 만든 링크가 <b>1시간 뒤에 자동으로 삭제</b>돼요. 설명회 신청은 보통 <b>한 달 정도</b> 열어두니, <b>구글 계정으로 1분이면 되는 무료 가입</b>을 꼭 해서 링크를 살려두세요. 가입 버튼은 <b>파일을 올린 뒤</b>에 나옵니다.
+    </div>
     <div class="gsteps">
       <div class="gstep">
         <div class="gnum">1</div>
@@ -150,20 +165,45 @@
       <div class="gstep">
         <div class="gnum">2</div>
         <div class="gt">파일을 끌어다 놓기</div>
-        <div class="gd">STEP 5에서 받은 <b>HTML 파일</b>을, 마우스로 잡아서 그 <b>회색 박스 안으로 끌어다 놓아요</b>(드래그). 잠깐 기다리면 올라갑니다.</div>
+        <div class="gd">STEP 5에서 받은 <b>HTML 파일</b>을, 마우스로 잡아서 그 <b>회색 박스 안으로 끌어다 놓아요</b>(드래그). 잠깐 기다리면 올라가고 <b>주소가 생깁니다.</b></div>
       </div>
       <div class="gstep">
         <div class="gnum">3</div>
+        <div class="gt">무료 가입 (꼭!)</div>
+        <div class="gd">주소가 생긴 화면에 뜨는 <b>‘Sign up(가입)’</b> 또는 <b>‘Claim(내 사이트로 저장)’</b> 버튼을 눌러요. <b>구글 계정</b>으로 1분이면 끝! 이래야 링크가 안 사라져요.</div>
+      </div>
+      <div class="gstep">
+        <div class="gnum">4</div>
         <div class="gt">주소 복사 → 카톡 전송</div>
-        <div class="gd">올라가면 <b>○○○.netlify.app</b> 같은 주소가 생겨요. 그 주소를 복사해서 <b>학부모님께 카톡·문자로</b> 보내면 끝!</div>
+        <div class="gd"><b>○○○.netlify.app</b> 주소를 복사해서 <b>학부모님께 카톡·문자로</b> 보내면 끝이에요!</div>
+      </div>
+    </div>
+    <div class="gpop">
+      <div class="gpt">📣 파일 올릴 때 이런 영어 팝업이 떠요!</div>
+      <div class="gpd">2단계에서 파일을 끌어다 놓으면 아래 같은 영어 창이 떠요. 당황하지 마시고 <b>왼쪽 파란 버튼(Rename and deploy)</b>을 누르세요. 그래야 페이지가 제대로 열려요. (오른쪽 회색 버튼을 누르면 페이지가 안 열릴 수 있어요.)</div>
+      <div class="gpwrap">
+        <svg width="340" height="200" viewBox="0 0 340 200" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
+          <rect x="1" y="1" width="338" height="198" rx="12" fill="#2b2f36"/>
+          <text x="22" y="40" fill="#ffffff" font-family="Pretendard,sans-serif" font-size="17" font-weight="800">Rename to index.html?</text>
+          <line x1="22" y1="56" x2="318" y2="56" stroke="#454a52" stroke-width="1"/>
+          <text x="22" y="82" fill="#c7ccd4" font-family="Pretendard,sans-serif" font-size="12.5">Without an index.html file, your site's homepage</text>
+          <text x="22" y="100" fill="#c7ccd4" font-family="Pretendard,sans-serif" font-size="12.5">will show a "Page Not Found" error.</text>
+          <text x="22" y="118" fill="#c7ccd4" font-family="Pretendard,sans-serif" font-size="12.5">Rename ... to index.html?</text>
+          <rect x="22" y="142" width="150" height="38" rx="8" fill="#7ef0e0"/>
+          <text x="97" y="166" fill="#0b3b35" font-family="Pretendard,sans-serif" font-size="13" font-weight="800" text-anchor="middle">Rename and deploy</text>
+          <rect x="182" y="142" width="136" height="38" rx="8" fill="#dfe2e7"/>
+          <text x="250" y="166" fill="#555" font-family="Pretendard,sans-serif" font-size="12" text-anchor="middle">Deploy without...</text>
+          <text x="97" y="135" fill="#16a34a" font-family="Pretendard,sans-serif" font-size="22" font-weight="800" text-anchor="middle">↓</text>
+        </svg>
+        <div class="gpcap"><span class="big">⬅️ 이 파란 버튼</span><br>(Rename and deploy)<br>여기를 누르세요!</div>
       </div>
     </div>
     <div class="gtips">
       <div class="gtt">알아두면 편해요</div>
       ✔ <b>잠깐 기다리세요.</b> 끌어다 놓으면 “올리는 중” 표시가 잠깐 나왔다가 주소가 떠요.<br>
       ✔ <b>되도록 컴퓨터(PC)에서</b> 올리시는 걸 추천해요. 휴대폰은 끌어다 놓기가 어려울 수 있어요.<br>
-      ✔ <b>나중에 내용을 고치려면</b> 무료 가입(이메일만)을 한 번 해두면 편해요. 가입하면 같은 주소에 수정한 파일을 다시 올릴 수 있어요.<br>
-      <span class="warn">✔ 가입 없이 만든 주소는 임시 주소예요. 설명회처럼 며칠 이상 쓸 거면 무료 가입을 권해요.</span>
+      ✔ <b>나중에 내용을 고치고 싶으면</b>(날짜 변경 등) 고친 파일을 같은 자리에 다시 끌어다 놓으면 돼요. 가입돼 있으면 같은 주소로 바뀝니다.<br>
+      ✔ <b>주소 이름을 바꾸고 싶으면</b> 가입 후 사이트 설정(Site settings)에서 이름을 바꿀 수 있어요.
     </div>
   </div>
 
