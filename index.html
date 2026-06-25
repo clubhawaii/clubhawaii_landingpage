@@ -18,7 +18,9 @@
   .top{padding:44px 0 22px;text-align:center;}
   .top .kicker{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:#fff;font-weight:800;background:var(--accent);padding:6px 16px;border-radius:100px;box-shadow:0 8px 20px -10px rgba(255,45,142,.6);}
   .top h1{font-size:clamp(24px,4.4vw,34px);font-weight:800;letter-spacing:-.02em;margin:12px 0 12px;}
-  .top p{color:var(--soft);font-size:15px;max-width:600px;margin:0 auto;word-break:keep-all;}
+  .top p{color:var(--soft);font-size:15px;max-width:620px;margin:0 auto;word-break:keep-all;}
+  .manual-btn{display:inline-flex;align-items:center;gap:7px;margin-top:22px;font-size:15px;font-weight:800;color:var(--accent);background:#fff;border:2px solid var(--accent);border-radius:100px;padding:12px 26px;text-decoration:none;transition:background .15s,color .15s,transform .15s;box-shadow:0 10px 26px -14px rgba(255,45,142,.5);}
+  .manual-btn:hover{background:var(--accent);color:#fff;transform:translateY(-2px);}
   .panel{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px;margin:16px 0 24px;box-shadow:0 12px 40px -28px rgba(255,45,142,.3);}
   .sec-h{font-size:14px;font-family:var(--mono);font-weight:800;letter-spacing:0;color:var(--ink);margin-bottom:16px;}
   .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
@@ -131,8 +133,9 @@
   <header class="top">
     <div class="kicker">CLUB HAWAII</div>
     <h1><span style="color:var(--accent);">2028</span> 대입 시행계획 설명회 신청,<br>코딩 없이 빠르게 만들어보세요!</h1>
-    <p>디자인을 고르고 학원 정보만 입력하면 설명회 신청 페이지 파일이 완성됩니다. 완성된 파일을 아래 안내에 따라 <b>netlify</b> 사이트에 업로드하면 학부모님께 보낼 링크가 생깁니다!</p>
-    <p style="margin-top:12px;"><b>STEP 3. 설명회 안내사항</b>은 예시 문구가 기본으로 적혀있습니다. 각 학원에 맞게 꼭 안내사항을 수정하신 후 활용하세요!</p>
+    <p>클럽하와이 2028 대입 시행계획 온라인 교육을 수강하신 원장님들이 학부모 설명회를 조금 더 쉽고 빠르게 준비하실 수 있도록, 신청 페이지에 필요한 구성과 예시 문구를 미리 준비해두었습니다.</p>
+    <p style="margin-top:12px;">학원 정보와 설명회 일정만 입력하고 원하는 디자인을 선택하시면, 학부모님께 바로 공유할 수 있는 신청 페이지 파일이 완성됩니다. 완성된 파일은 안내에 따라 <b>Netlify</b>에 업로드해 신청 링크로 활용하시면 됩니다.</p>
+    <a href="#manual" id="manualBtn" class="manual-btn" target="_blank">📖 처음이신 원장님은 순서 먼저 보기</a>
   </header>
 
   <div class="panel">
@@ -172,12 +175,25 @@
     </details>
   </div>
 
-  <div class="guide">
-    <div class="gh"><span class="pin">📌</span> 다운로드 전에 꼭 읽어보세요!</div>
-    <div class="gsub">아래 STEP 5에서 파일을 받으면, 그 파일을 <b>인터넷에 올려야</b> 학부모님께 보낼 주소(링크)가 생깁니다. 무료이고, 아래 <b>4단계</b>면 끝나요.</div>
+  <div class="panel">
+    <div class="sec-h">STEP 4. 미리보기 및 파일 다운로드</div>
+    <div class="actions">
+      <button class="btn ghost" id="btnPreview">미리보기 (새 창)</button>
+      <button class="btn primary" id="btnDownload">완성 파일 다운로드</button>
+    </div>
+    <div class="note" style="margin-top:14px;">먼저 <b>미리보기</b>로 확인한 뒤 <b>완성 파일 다운로드</b>를 누르세요. 받은 파일은 <b>아래 STEP 5</b>에서 Netlify에 올려 신청 링크로 만듭니다.</div>
+  </div>
+  <div class="panel">
+    <div class="sec-h">STEP 5. Netlify에 올려 신청 링크 만들기</div>
+    <div class="note" style="margin-bottom:8px;">파일을 다운로드한 뒤에는 <b>Netlify</b>에 올려야 학부모님께 보낼 신청 링크가 만들어집니다. 처음이신 원장님도 아래 순서대로 따라 하시면 됩니다.</div>
+    <details class="advbox" id="netlifyBox">
+      <summary><span class="advt">📌 다운로드 후 신청 링크 만드는 방법 보기 (눌러서 열기)</span><span class="advsub">Netlify 접속 → 파일 올리기 → 무료 가입 → 링크 복사 · 처음이시면 꼭 펼쳐서 확인하세요</span></summary>
+      <div class="advinner">
+      <div class="guide" style="margin:0;border:none;box-shadow:none;padding:0;background:none;">
+    <div class="gsub" style="margin-top:2px;">무료이고, 아래 <b>4단계</b>면 끝나요. 파일을 올리면 학부모님께 보낼 신청 링크가 생깁니다.</div>
     <div class="galert">
-      <span class="at">⚠️ Netlify 무료 가입은 꼭 하세요! (안 하면 1시간 뒤 사라져요)</span>
-      파일을 올리는 <b>Netlify(넷리파이)</b>는 만든 페이지를 인터넷에 올려 링크로 만들어 주는 <b>무료 사이트</b>예요. 그런데 <b>가입하지 않으면 만든 링크가 1시간 뒤에 자동으로 삭제</b>돼요. 설명회 신청은 보통 <b>한 달 정도</b> 열어두니, <b>구글 계정으로 1분이면 되는 Netlify 무료 가입</b>을 꼭 해서 링크를 살려두세요. 가입 버튼은 <b>파일을 올린 뒤</b>에 나옵니다.
+      <span class="at">⚠️ 링크가 오래 유지되도록 Netlify 무료 가입까지 꼭 마무리해 주세요</span>
+      <b>Netlify(넷리파이)</b>는 완성된 페이지를 인터넷 주소로 만들어주는 <b>무료 사이트</b>입니다. 다만 가입하지 않고 파일만 올리면, 만든 링크가 일정 시간이 지나 사라질 수 있어요. 설명회 신청 페이지는 학부모님께 일정 기간 공유해야 하므로, 파일을 올린 뒤 나오는 <b>Sign up</b> 또는 <b>Claim</b> 버튼을 눌러 <b>무료 가입까지 완료</b>해 주세요. 구글 계정으로 간단히 진행할 수 있습니다.
     </div>
     <div class="gsteps">
       <div class="gstep">
@@ -188,12 +204,12 @@
       <div class="gstep">
         <div class="gnum">2</div>
         <div class="gt">파일을 끌어다 놓기</div>
-        <div class="gd">STEP 5에서 받은 <b>HTML 파일</b>을, 마우스로 잡아서 그 <b>회색 박스 안으로 끌어다 놓아요</b>(드래그). 잠깐 기다리면 올라가고 <b>주소가 생깁니다.</b></div>
+        <div class="gd">STEP 4에서 받은 <b>HTML 파일</b>을, 마우스로 잡아서 그 <b>회색 박스 안으로 끌어다 놓아요</b>(드래그). 잠깐 기다리면 올라가고 <b>주소가 생깁니다.</b></div>
       </div>
       <div class="gstep">
         <div class="gnum">3</div>
         <div class="gt">무료 가입 (꼭!)</div>
-        <div class="gd">주소가 생긴 화면에 뜨는 <b>‘Sign up(가입)’</b> 또는 <b>‘Claim(내 사이트로 저장)’</b> 버튼을 눌러요. <b>구글 계정</b>으로 1분이면 끝! 이래야 링크가 안 사라져요.</div>
+        <div class="gd">주소가 생긴 화면에 뜨는 <b>‘Sign up(가입)’</b> 또는 <b>‘Claim(내 사이트로 저장)’</b> 버튼을 눌러요. <b>구글 계정</b>으로 1분이면 끝! 이래야 링크가 오래 유지돼요.</div>
       </div>
       <div class="gstep">
         <div class="gnum">4</div>
@@ -230,13 +246,8 @@
     </div>
   </div>
 
-  <div class="panel">
-    <div class="sec-h">STEP 5. 확인하고 내려받기</div>
-    <div class="actions">
-      <button class="btn ghost" id="btnPreview">미리보기 (새 창)</button>
-      <button class="btn primary" id="btnDownload">완성 파일 다운로드</button>
-    </div>
-    <div class="note" style="margin-top:14px;">완성된 파일을 다운로드한 후, <b>위 안내(📌)</b>대로 무료 호스팅에 올리면 학부모님께 보낼 <b>설명회 신청 링크</b>가 생성됩니다.</div>
+      </div>
+    </details>
   </div>
   <div class="foot">입력한 내용은 <b>이 기기 안에서만</b> 처리되며 어디에도 저장·전송되지 않습니다.</div>
 </div>
@@ -256,6 +267,17 @@
       GROUPS=b64json("d_groups"), DEFAULTS=b64json("d_defaults"), INFOF=b64json("d_info");
   var KEYS=["A","B","C","D","E","F"];
   var selected="A";
+
+  // ▼▼▼ 사용 설명서(매뉴얼) 주소를 여기에 붙여넣으세요 ▼▼▼
+  // 매뉴얼(manual.html)을 Netlify 등에 올린 뒤, 그 주소를 아래 따옴표 안에 넣으면
+  // 상단 '사용 설명서 먼저 보기' 버튼이 그 페이지로 연결됩니다.
+  var MANUAL_URL = "";  // 예: "https://클럽하와이매뉴얼.netlify.app"
+  (function(){
+    var mb=document.getElementById("manualBtn");
+    if(!mb) return;
+    if(MANUAL_URL){ mb.href=MANUAL_URL; }
+    else { mb.addEventListener("click",function(e){ e.preventDefault(); alert("사용 설명서 주소가 아직 연결되지 않았어요.\n(클럽하와이에 문의해 주세요.)"); }); }
+  })();
 
   // ---- 시안 카드 ----
   var optsEl=document.getElementById("opts");
